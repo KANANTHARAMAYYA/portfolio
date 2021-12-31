@@ -1,3 +1,32 @@
-import "https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js";
-import *as o from "https://unpkg.com/three@0.127.0/build/three.module.js"; 
-const u = function () { const n = document.createElement("link").relList; if (n && n.supports && n.supports("modulepreload")) return; for (const e of document.querySelectorAll('link[rel="modulepreload"]')) c(e); new MutationObserver(e => { for (const t of e) if (t.type === "childList") for (const i of t.addedNodes) i.tagName === "LINK" && i.rel === "modulepreload" && c(i) }).observe(document, { childList: !0, subtree: !0 }); function f(e) { const t = {}; return e.integrity && (t.integrity = e.integrity), e.referrerpolicy && (t.referrerPolicy = e.referrerpolicy), e.crossorigin === "use-credentials" ? t.credentials = "include" : e.crossorigin === "anonymous" ? t.credentials = "omit" : t.credentials = "same-origin", t } function c(e) { if (e.ep) return; e.ep = !0; const t = f(e); fetch(e.href, t) } }; u(); const l = new o.Scene, a = new o.PerspectiveCamera(75, innerWidth / innerHeight, .1, 1e3), r = new o.WebGLRenderer; r.setSize(innerWidth, innerHeight); r.setPixelRatio(devicePixelRatio); document.body.appendChild(r.domElement); const m = new o.BoxGeometry(1, 1, 1, 1), p = new o.MeshBasicMaterial({ color: 16777215 }), s = new o.Mesh(m, p); l.add(s); a.position.z = 5; function d() { requestAnimationFrame(d), r.render(l, a), s.rotation.x += .01, s.rotation.y += .01 } d();
+import "https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js"; 
+import *as o from "https://unpkg.com/three@0.127.0/build/three.module.js";var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+//Creates renderer and adds it to the DOM
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+//The Box!
+
+//BoxGeometry (makes a geometry)
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+//Material to apply to the cube (green)
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+//Applies material to BoxGeometry
+var cube = new THREE.Mesh( geometry, material );
+//Adds cube to the scene
+scene.add( cube );
+
+//Sets camera's distance away from cube (using this explanation only for simplicity's sake - in reality this actually sets the 'depth' of the camera's position)
+
+camera.position.z = 5;
+
+//Rendering
+
+function render() {
+  requestAnimationFrame( render );
+  renderer.render( scene, camera );
+}
+render();
