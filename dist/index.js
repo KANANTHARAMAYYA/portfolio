@@ -1,5 +1,5 @@
 import "https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js"; 
-import *as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";var scene = new THREE.Scene();
+import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 //Creates renderer and adds it to the DOM
