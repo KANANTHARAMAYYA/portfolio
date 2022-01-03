@@ -1,4 +1,4 @@
-const words = ["Anantha Kandrapu", "A Learner", "A Workaholic", "A Developer."]
+const words = [" Anantha Kandrapu", "an Engineer", " a Developer."]
 
 let cursor = gsap.to('.cursor', { opacity: 0, ease: "power2.inOut", repeat: -1 })
 let masterTl = gsap.timeline({ repeat: -1 }).pause()
