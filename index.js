@@ -1,5 +1,7 @@
 import "https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js";
 import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
+import vertexShader from './shaders/test.glsl'
+
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -7,6 +9,7 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 //The Box!
@@ -22,7 +25,7 @@ scene.add(cube);
 
 //Sets camera's distance away from cube (using this explanation only for simplicity's sake - in reality this actually sets the 'depth' of the camera's position)
 
-camera.position.z = 5;
+camera.position.z = 2;
 
 //Rendering
 
