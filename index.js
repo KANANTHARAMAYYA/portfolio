@@ -1,5 +1,4 @@
-import "https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js";
-import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
+import * as THREE from 'three-js';
 import vertexShader from './shaders/test.glsl'
 
 var scene = new THREE.Scene();
